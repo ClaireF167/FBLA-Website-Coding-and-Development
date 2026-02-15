@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report Item</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="sidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="index.html">Home</a>
+    <a href="report.html">Report Item</a>
+    <a href="search.html">Search Items</a>
+    <a href="status.html">Status</a>
+  </div>
+
+  <div class="topbar">
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+    <h1>Report Item</h1>
+  </div>
+
+  <div class="form-container">
+    <form id="reportForm">
+      <label for="type">I am:</label>
+      <select id="type" required>
+        <option value="">Select...</option>
+        <option value="found">Reporting Found Item</option>
+        <option value="lost">Looking for Lost Item</option>
+      </select>
+
+      <label for="desc">Description:</label>
+      <input type="text" id="desc" placeholder="Purple water bottle" required>
+
+      <label for="photo">Upload Photo:</label>
+      <input type="file" id="photo">
+
+      <label for="date">Date Found:</label>
+      <input type="date" id="date" required>
+
+      <label for="location">Location:</label>
+      <input type="text" id="location" placeholder="500's Building" required>
+
+      <button type="submit">Submit</button>
+    </form>
+    <p id="formMessage"></p>
+  </div>
+
+  <script>
+    function openNav() { document.getElementById("sidebar").style.width = "250px"; }
+    function closeNav() { document.getElementById("sidebar").style.width = "0"; }
+
+    // Save report to localStorage (simple for now)
+    document.getElementById('reportForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const reports = JSON.parse(localStorage.getItem('reports') || '[]');
+      const report = {
+        type: document.getElementById('type').value,
+        desc: document.getElementById('desc').value,
+        photo: document.getElementById('photo').value,
+        date: document.getElementById('date').value,
+        location: document.getElementById('location').value,
+        status: 'waiting'
+      };
+      reports.push(report);
+      localStorage.setItem('reports', JSON.stringify(reports));
+      document.getElementById('formMessage').textContent = "Item reported successfully!";
+      this.reset();
+    });
+  </script>
+</body>
+</html>

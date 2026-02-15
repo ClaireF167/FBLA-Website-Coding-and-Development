@@ -1,0 +1,79 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.topbar {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.topbar h1 {
+  margin: 0 0 0 10px;
+}
+
+.main-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.main-buttons button {
+  margin: 0 15px;
+  padding: 15px 25px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
+  display: block;
+}
+
+.sidebar a:hover {
+  background-color: #575757;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  font-size: 36px;
+}
+
+.form-container, .search-container, .status-container {
+  margin: 20px;
+}
+
+input, select, button {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  width: 100%;
+}
+
+.item-card, .status-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px 0;
+}

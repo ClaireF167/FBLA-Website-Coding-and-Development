@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Items</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="sidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="index.html">Home</a>
+    <a href="report.html">Report Item</a>
+    <a href="search.html">Search Items</a>
+    <a href="status.html">Status</a>
+  </div>
+
+  <div class="topbar">
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+    <h1>Search Items</h1>
+  </div>
+
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search by description, date, location...">
+    <select id="filterSelect">
+      <option value="desc">Description</option>
+      <option value="date">Date</option>
+      <option value="location">Location</option>
+      <option value="type">Type</option>
+    </select>
+    <button onclick="searchItems()">Search</button>
+  </div>
+
+  <div class="results" id="results"></div>
+
+  <script>
+    function openNav() { document.getElementById("sidebar").style.width = "250px"; }
+    function closeNav() { document.getElementById("sidebar").style.width = "0"; }
+
+    function searchItems() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const filter = document.getElementById('filterSelect').value;
+      const reports = JSON.parse(localStorage.getItem('reports') || '[]');
+      const resultsDiv = document.getElementById('results');
+      resultsDiv.innerHTML = '';
+
+      const filtered = reports.filter(r => r[filter].toLowerCase().includes(input));
+      if(filtered.length === 0) resultsDiv.textContent = "No items found.";
+
+      filtered.forEach((r, index) => {
+        const card = document.createElement('div');
+        card.className = 'item-card';
+        card.innerHTML = `
+          <p><strong>${r.desc}</strong></p>
+          <p>Date: ${r.date} | Location: ${r.location}</p>
+          <button onclick="requestItem(${index})">Request Item</button>
+        `;
+        resultsDiv.appendChild(card);
+      });
+    }
+
+    function requestItem(index) {
+      const reports = JSON.parse(localStorage.getItem('reports') || '[]');
+      reports[index].status = 'request received';
+      localStorage.setItem('reports', JSON.stringify(reports));
+      alert("Request submitted!");
+    }
+  </script>
+</body>
+</html>
