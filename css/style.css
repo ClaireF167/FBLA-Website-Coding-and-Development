@@ -825,6 +825,7 @@ footer a { color: var(--color-accent); }
 
 /* --- Responsive --- */
 
+/* Tablet (600px+) */
 @media (min-width: 600px) {
   main > section:nth-child(2) {
     display: grid;
@@ -842,8 +843,79 @@ footer a { color: var(--color-accent); }
   .admin-stats-grid { grid-template-columns: repeat(4, 1fr); }
 }
 
+/* Desktop (768px+) */
+@media (min-width: 768px) {
+  main > section:first-child {
+    padding: 5rem var(--space-5);
+  }
+
+  main > section:first-child h1 {
+    font-size: 3.25rem;
+  }
+
+  main > section:first-child p {
+    font-size: var(--text-xl);
+  }
+
+  .page-header {
+    padding: var(--space-8) var(--space-5);
+  }
+
+  .page-header h1 {
+    font-size: var(--text-4xl);
+  }
+
+  .form-section {
+    padding: var(--space-7) var(--space-5);
+  }
+
+  fieldset {
+    padding: var(--space-6);
+  }
+
+  .search-controls {
+    padding: var(--space-6);
+  }
+}
+
+/* Large desktop (1024px+) */
 @media (min-width: 1024px) {
   .items-grid { grid-template-columns: repeat(3, 1fr); }
+
+  main > section:first-child {
+    padding: 6rem var(--space-5);
+  }
+
+  main > section:first-child h1 {
+    font-size: 3.75rem;
+    max-width: 800px;
+  }
+
+  main > section:nth-child(2) {
+    padding: 5rem var(--space-5);
+    gap: var(--space-6);
+  }
+
+  main > section:nth-child(2) > div {
+    padding: var(--space-7);
+  }
+
+  nav {
+    padding: var(--space-4) var(--space-6);
+  }
+
+  nav ul {
+    gap: var(--space-2);
+  }
+
+  nav ul a {
+    font-size: var(--text-base);
+    padding: var(--space-2) var(--space-4);
+  }
+
+  .admin-content {
+    padding: 0 var(--space-6) var(--space-8);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
