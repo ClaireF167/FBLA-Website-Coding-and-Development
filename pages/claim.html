@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Claim a lost item that has been found and reported. Provide proof of ownership to retrieve your belongings.">
+  <title>Claim Item | FindIt — School Lost &amp; Found</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="../index.html">FindIt</a>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="report.html">Report</a></li>
+        <li><a href="search.html">Search</a></li>
+        <li><a href="claim.html">Claim</a></li>
+        <li><a href="admin.html">Admin</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <h1>Claim an Item</h1>
+      <p>Think you've found your lost item in our system? Fill out this form to submit a claim. You'll need to describe the item to prove it's yours.</p>
+    </section>
+
+    <section class="form-section">
+      <form id="claimForm" novalidate>
+
+        <fieldset>
+          <legend>Select the Item</legend>
+
+          <div class="form-group">
+            <label for="claimItemId">Which item are you claiming? <span class="required">*</span></label>
+            <select id="claimItemId" name="claimItemId" required>
+              <option value="">— Select an item —</option>
+            </select>
+            <span class="error-message" id="claimItemId-error"></span>
+          </div>
+
+          <div id="claimItemPreview" class="item-preview" hidden></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Your Information</legend>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="claimantName">Your Name <span class="required">*</span></label>
+              <input type="text" id="claimantName" name="claimantName" placeholder="First and Last name" required autocomplete="name">
+              <span class="error-message" id="claimantName-error"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="claimantEmail">Your Email <span class="required">*</span></label>
+              <input type="email" id="claimantEmail" name="claimantEmail" placeholder="you@school.edu" required autocomplete="email">
+              <span class="error-message" id="claimantEmail-error"></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="claimantId">Student / Staff ID <span class="optional">(optional)</span></label>
+            <input type="text" id="claimantId" name="claimantId" placeholder="e.g., 12345">
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Proof of Ownership</legend>
+
+          <div class="form-group">
+            <label for="proofDescription">Describe why this item is yours <span class="required">*</span></label>
+            <textarea id="proofDescription" name="proofDescription" rows="4" placeholder="Include details only the owner would know: specific marks, contents, stickers, where/when you lost it, etc." required></textarea>
+            <span class="error-message" id="proofDescription-error"></span>
+          </div>
+        </fieldset>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary btn-lg">Submit Claim</button>
+        </div>
+
+        <div id="claimSuccess" class="form-success" hidden>
+          <div class="success-icon">✓</div>
+          <h2>Claim Submitted!</h2>
+          <p>Your claim is under review. An admin will verify your ownership details and get back to you.</p>
+          <a href="search.html" class="btn btn-outline">Back to Search</a>
+        </div>
+
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 FindIt — School Lost &amp; Found. Built for FBLA Website Coding &amp; Development.</p>
+    <p>Fonts: DM Sans &amp; DM Serif Display by Colophon Foundry (Google Fonts, OFL License).</p>
+  </footer>
+
+  <script src="../js/app.js" defer></script>
+</body>
+</html>
