@@ -25,75 +25,77 @@
     </nav>
   </header>
 
-  <main>
-    <section class="page-header">
-      <h1>Claim an Item</h1>
-      <p>Think you've found your lost item in our system? Fill out this form to submit a claim. You'll need to describe the item to prove it's yours.</p>
-    </section>
+  <main class="page-main">
+    <div class="page-container">
+      <section class="page-header">
+        <h1>Claim an Item</h1>
+        <p>Think you've found your lost item in our system? Fill out this form to submit a claim. You'll need to describe the item to prove it's yours.</p>
+      </section>
 
-    <section class="form-section">
-      <form id="claimForm" novalidate>
+      <section class="form-section">
+        <form id="claimForm" novalidate>
 
-        <fieldset>
-          <legend>Select the Item</legend>
+          <fieldset>
+            <legend>Select the Item</legend>
 
-          <div class="form-group">
-            <label for="claimItemId">Which item are you claiming? <span class="required">*</span></label>
-            <select id="claimItemId" name="claimItemId" required>
-              <option value="">&mdash; Select an item &mdash;</option>
-            </select>
-            <span class="error-message" id="claimItemId-error"></span>
-          </div>
-
-          <div id="claimItemPreview" class="item-preview" hidden></div>
-        </fieldset>
-
-        <fieldset>
-          <legend>Your Information</legend>
-
-          <div class="form-row">
             <div class="form-group">
-              <label for="claimantName">Your Name <span class="required">*</span></label>
-              <input type="text" id="claimantName" name="claimantName" placeholder="First and Last name" required autocomplete="name">
-              <span class="error-message" id="claimantName-error"></span>
+              <label for="claimItemId">Which item are you claiming? <span class="required">*</span></label>
+              <select id="claimItemId" name="claimItemId" required>
+                <option value="">&mdash; Select an item &mdash;</option>
+              </select>
+              <span class="error-message" id="claimItemId-error"></span>
+            </div>
+
+            <div id="claimItemPreview" class="item-preview" hidden></div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Your Information</legend>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="claimantName">Your Name <span class="required">*</span></label>
+                <input type="text" id="claimantName" name="claimantName" placeholder="First and Last name" required autocomplete="name">
+                <span class="error-message" id="claimantName-error"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="claimantEmail">Your Email <span class="required">*</span></label>
+                <input type="email" id="claimantEmail" name="claimantEmail" placeholder="you@school.edu" required autocomplete="email">
+                <span class="error-message" id="claimantEmail-error"></span>
+              </div>
             </div>
 
             <div class="form-group">
-              <label for="claimantEmail">Your Email <span class="required">*</span></label>
-              <input type="email" id="claimantEmail" name="claimantEmail" placeholder="you@school.edu" required autocomplete="email">
-              <span class="error-message" id="claimantEmail-error"></span>
+              <label for="claimantId">Student / Staff ID <span class="optional">(optional)</span></label>
+              <input type="text" id="claimantId" name="claimantId" placeholder="e.g., 12345">
             </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Proof of Ownership</legend>
+
+            <div class="form-group">
+              <label for="proofDescription">Describe why this item is yours <span class="required">*</span></label>
+              <textarea id="proofDescription" name="proofDescription" rows="4" placeholder="Include details only the owner would know: specific marks, contents, stickers, where/when you lost it, etc." required></textarea>
+              <span class="error-message" id="proofDescription-error"></span>
+            </div>
+          </fieldset>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary btn-lg">Submit Claim</button>
           </div>
 
-          <div class="form-group">
-            <label for="claimantId">Student / Staff ID <span class="optional">(optional)</span></label>
-            <input type="text" id="claimantId" name="claimantId" placeholder="e.g., 12345">
+          <div id="claimSuccess" class="form-success" hidden>
+            <div class="success-icon">&#10003;</div>
+            <h2>Claim Submitted!</h2>
+            <p>Your claim is under review. An admin will verify your ownership details and get back to you.</p>
+            <a href="search.html" class="btn btn-outline">Back to Search</a>
           </div>
-        </fieldset>
 
-        <fieldset>
-          <legend>Proof of Ownership</legend>
-
-          <div class="form-group">
-            <label for="proofDescription">Describe why this item is yours <span class="required">*</span></label>
-            <textarea id="proofDescription" name="proofDescription" rows="4" placeholder="Include details only the owner would know: specific marks, contents, stickers, where/when you lost it, etc." required></textarea>
-            <span class="error-message" id="proofDescription-error"></span>
-          </div>
-        </fieldset>
-
-        <div class="form-actions">
-          <button type="submit" class="btn btn-primary btn-lg">Submit Claim</button>
-        </div>
-
-        <div id="claimSuccess" class="form-success" hidden>
-          <div class="success-icon">&#10003;</div>
-          <h2>Claim Submitted!</h2>
-          <p>Your claim is under review. An admin will verify your ownership details and get back to you.</p>
-          <a href="search.html" class="btn btn-outline">Back to Search</a>
-        </div>
-
-      </form>
-    </section>
+        </form>
+      </section>
+    </div>
   </main>
 
   <footer>

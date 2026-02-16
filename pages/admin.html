@@ -25,84 +25,86 @@
     </nav>
   </header>
 
-  <main>
-    <section class="page-header">
-      <h1>Admin Dashboard</h1>
-      <p>Review, approve, and manage all lost-and-found items and claims.</p>
-    </section>
+  <main class="page-main">
+    <div class="page-container">
+      <section class="page-header">
+        <h1>Admin Dashboard</h1>
+        <p>Review, approve, and manage all lost-and-found items and claims.</p>
+      </section>
 
-    <section class="admin-stats">
-      <div class="admin-stats-grid">
-        <div class="admin-stat-card stat-total">
-          <span class="admin-stat-number" id="adminTotal">0</span>
-          <span class="admin-stat-label">Total Items</span>
-        </div>
-        <div class="admin-stat-card stat-pending">
-          <span class="admin-stat-number" id="adminPending">0</span>
-          <span class="admin-stat-label">Pending Review</span>
-        </div>
-        <div class="admin-stat-card stat-approved">
-          <span class="admin-stat-number" id="adminApproved">0</span>
-          <span class="admin-stat-label">Approved</span>
-        </div>
-        <div class="admin-stat-card stat-claimed">
-          <span class="admin-stat-number" id="adminClaimed">0</span>
-          <span class="admin-stat-label">Claimed</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="admin-content">
-      <div class="admin-tabs">
-        <button class="tab-btn active" id="items-tab" data-tab="items-panel">All Items</button>
-        <button class="tab-btn" id="claims-tab" data-tab="claims-panel">Claims</button>
-      </div>
-
-      <div id="items-panel" class="tab-panel active">
-        <div class="admin-filter-bar">
-          <div class="form-group">
-            <label for="adminStatusFilter">Filter by Status:</label>
-            <select id="adminStatusFilter">
-              <option value="">All Statuses</option>
-              <option value="pending">Pending Review</option>
-              <option value="approved">Approved</option>
-              <option value="claimed">Claimed</option>
-              <option value="returned">Returned</option>
-              <option value="rejected">Rejected</option>
-            </select>
+      <section class="admin-stats">
+        <div class="admin-stats-grid">
+          <div class="admin-stat-card stat-total">
+            <span class="admin-stat-number" id="adminTotal">0</span>
+            <span class="admin-stat-label">Total Items</span>
           </div>
-          <button type="button" id="seedDataBtn" class="btn btn-secondary-dark">Load Demo Data</button>
-          <button type="button" id="clearDataBtn" class="btn btn-danger">Clear All Data</button>
+          <div class="admin-stat-card stat-pending">
+            <span class="admin-stat-number" id="adminPending">0</span>
+            <span class="admin-stat-label">Pending Review</span>
+          </div>
+          <div class="admin-stat-card stat-approved">
+            <span class="admin-stat-number" id="adminApproved">0</span>
+            <span class="admin-stat-label">Approved</span>
+          </div>
+          <div class="admin-stat-card stat-claimed">
+            <span class="admin-stat-number" id="adminClaimed">0</span>
+            <span class="admin-stat-label">Claimed</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="admin-content">
+        <div class="admin-tabs">
+          <button class="tab-btn active" id="items-tab" data-tab="items-panel">All Items</button>
+          <button class="tab-btn" id="claims-tab" data-tab="claims-panel">Claims</button>
         </div>
 
-        <div class="table-wrapper">
-          <table class="admin-table" id="adminItemsTable">
-            <thead>
-              <tr>
-                <th>Item</th>
-                <th>Category</th>
-                <th>Location</th>
-                <th>Date</th>
-                <th>Status</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody id="adminItemsBody"></tbody>
-          </table>
+        <div id="items-panel" class="tab-panel active">
+          <div class="admin-filter-bar">
+            <div class="form-group">
+              <label for="adminStatusFilter">Filter by Status:</label>
+              <select id="adminStatusFilter">
+                <option value="">All Statuses</option>
+                <option value="pending">Pending Review</option>
+                <option value="approved">Approved</option>
+                <option value="claimed">Claimed</option>
+                <option value="returned">Returned</option>
+                <option value="rejected">Rejected</option>
+              </select>
+            </div>
+            <button type="button" id="seedDataBtn" class="btn btn-secondary-dark">Load Demo Data</button>
+            <button type="button" id="clearDataBtn" class="btn btn-danger">Clear All Data</button>
+          </div>
+
+          <div class="table-wrapper">
+            <table class="admin-table" id="adminItemsTable">
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Category</th>
+                  <th>Location</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="adminItemsBody"></tbody>
+            </table>
+          </div>
+
+          <div id="adminEmptyState" class="empty-state" hidden>
+            <p>No items in the system yet. Use "Load Demo Data" to add sample items, or <a href="report.html">report a found item</a>.</p>
+          </div>
         </div>
 
-        <div id="adminEmptyState" class="empty-state" hidden>
-          <p>No items in the system yet. Use "Load Demo Data" to add sample items, or <a href="report.html">report a found item</a>.</p>
+        <div id="claims-panel" class="tab-panel" hidden>
+          <div id="claimsList" class="claims-list"></div>
+          <div id="claimsEmptyState" class="empty-state" hidden>
+            <p>No claims have been submitted yet.</p>
+          </div>
         </div>
-      </div>
-
-      <div id="claims-panel" class="tab-panel" hidden>
-        <div id="claimsList" class="claims-list"></div>
-        <div id="claimsEmptyState" class="empty-state" hidden>
-          <p>No claims have been submitted yet.</p>
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </main>
 
   <footer>
