@@ -382,6 +382,20 @@ main > section:nth-child(2) > div:hover {
 main > section:nth-child(2) > div h3 { margin-bottom: var(--space-3); }
 main > section:nth-child(2) > div p { color: var(--color-text-light); }
 
+/* --- Page Layout Wrapper --- */
+
+.page-main {
+  width: 100%;
+  min-height: calc(100vh - var(--nav-height));
+  padding: var(--space-6) var(--space-4);
+  display: flex;
+  justify-content: center;
+}
+
+.page-container {
+  width: 100%;
+  max-width: var(--max-width);
+}
 
 /* --- Page Header (inner pages) --- */
 
