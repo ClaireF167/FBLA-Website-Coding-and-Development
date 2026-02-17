@@ -19,7 +19,16 @@
         <li><a href="../index.html">Home</a></li>
         <li><a href="report.html">Report</a></li>
         <li><a href="search.html">Search</a></li>
-        <li><a href="claim.html">Claim</a></li>
+
+        <!-- Claim Dropdown -->
+        <li class="dropdown">
+          <a href="#" class="dropbtn">Claim ▾</a>
+          <ul class="dropdown-content">
+            <li><a href="claim.html">Claim Item</a></li>
+            <li><a href="status.html">Status</a></li>
+          </ul>
+        </li>
+
         <li><a href="admin.html">Admin</a></li>
       </ul>
     </nav>
@@ -28,7 +37,7 @@
   <main class="page-main">
     <div class="page-container">
       <section class="page-header">
-        <h1>Report a Found Item</h1>
+        <h1>Report an Item</h1>
         <p>Help someone get their belongings back. Fill out the form below with as much detail as possible.</p>
       </section>
 
@@ -140,7 +149,7 @@
           <div id="formSuccess" class="form-success" hidden>
             <div class="success-icon">&#10003;</div>
             <h2>Item Reported Successfully!</h2>
-            <p>Your report has been submitted and is pending admin review. Thank you for helping!</p>
+            <p>Your report has been submitted. It will appear in search once approved.</p>
             <a href="search.html" class="btn btn-outline">View All Items</a>
           </div>
 

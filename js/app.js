@@ -661,3 +661,58 @@ document.addEventListener('DOMContentLoaded', () => {
   initClaimPage();
   initAdminPanel();
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const statusBox = document.getElementById("statusMessage");
+  const historyList = document.getElementById("historyList");
+
+  if (!statusBox || !historyList) return;
+
+  const claims = JSON.parse(localStorage.getItem("claims")) || [];
+
+  if (claims.length === 0) {
+    statusBox.innerHTML = `
+      <div class="status-box">
+        <h2>No Claims Found</h2>
+        <p class="status-message status-none">
+          You have not claimed any items.
+        </p>
+      </div>
+    `;
+    return;
+  }
+
+  const latest = claims[claims.length - 1];
+
+  const statusText = {
+    requested: "Requested — we have received your request.",
+    found: "Found — please come collect your item!",
+    returned: "Returned — this item has already been picked up."
+  };
+
+  statusBox.innerHTML = `
+    <div class="status-box">
+      <h2>Current Status</h2>
+      <p class="status-message status-${latest.status}">
+        ${statusText[latest.status]}
+      </p>
+    </div>
+  `;
+
+  claims.forEach(item => {
+    const card = document.createElement("div");
+    card.className = "item-card";
+
+    card.innerHTML = `
+      <div class="item-card-body">
+        <h3>${item.itemName}</h3>
+        <p class="item-card-desc">${item.description}</p>
+        <span class="status-badge status-${item.status}">
+          ${item.status.toUpperCase()}
+        </span>
+      </div>
+    `;
+
+    historyList.appendChild(card);
+  });
+});
